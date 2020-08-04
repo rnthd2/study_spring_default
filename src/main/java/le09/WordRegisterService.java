@@ -1,19 +1,18 @@
 package le09;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class WordRegisterService {
 
-	@Resource
+	@Autowired
 	private WordDao wordDao;
 
 	public WordRegisterService() {
+
 	}
 
-	@Autowired
-	public WordRegisterService(WordDao wordDao) {
+	public WordRegisterService(WordDao wordDao){
 		this.wordDao = wordDao;
 	}
 }

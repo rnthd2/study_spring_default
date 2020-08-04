@@ -66,13 +66,4 @@
         <property name="injectionBean" ref="injectionBean"/>
     </bean>
 
-    <context:annotation-config/>
-
-    <bean id="wordDao" class="le09.WordDao"/>
-
-    <bean id="wordRegisterService" class="le09.WordRegisterService">
-        <!-- @Autowired로 알아서 아래를 설정할 수 있음-->
-        <!--<constructor-arg ref="wordDao"/>-->
-    </bean>
-
 </beans>

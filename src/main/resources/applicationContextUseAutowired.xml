@@ -11,9 +11,22 @@
 
     <bean id="wordDao" class="le09.WordDao"/>
 
-    <bean id="wordRegisterService" class="le09.WordRegisterService">
+    <bean id="wordRegisterService1" class="le09.WordRegisterService">
         <!-- @Autowired로 알아서 아래를 설정할 수 있음-->
         <!--<constructor-arg ref="wordDao"/>-->
     </bean>
+
+    <!--<bean id="wordDao1" class="le10.WordDao">-->
+        <!--<qualifier value="usedDao"/>-->
+    <!--</bean>-->
+    <!--<bean id="wordDao2" class="le10.WordDao"/>-->
+    <!--<bean id="wordDao3" class="le10.WordDao"/>-->
+
+    <bean id="wordRegisterService2" class="le10.WordRegisterService">
+        <!-- @Autowired로 알아서 아래를 설정할 수 있음-->
+        <!--<constructor-arg ref="wordDao"/>-->
+    </bean>
+
+
 
 </beans>
