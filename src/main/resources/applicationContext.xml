@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="tWalk" class="le05.TransportationWalk"/>
 
@@ -53,6 +57,22 @@
     <bean id="assembler" class="le07.Assembler">
         <constructor-arg ref="studentDao"/>
         <constructor-arg ref="teacherDao"/>
+    </bean>
+
+    <bean id="injectionBean" class="le08.InjectionBean"/>
+
+    <bean id="dependencyBean" class="le08.DependencyBean" scope="prototype">
+        <constructor-arg ref="injectionBean"/>
+        <property name="injectionBean" ref="injectionBean"/>
+    </bean>
+
+    <context:annotation-config/>
+
+    <bean id="wordDao" class="le09.WordDao"/>
+
+    <bean id="wordRegisterService" class="le09.WordRegisterService">
+        <!-- @Autowired로 알아서 아래를 설정할 수 있음-->
+        <!--<constructor-arg ref="wordDao"/>-->
     </bean>
 
 </beans>

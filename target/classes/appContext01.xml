@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="tWalk" class="le05.TransportationWalk"/>
+
+    <bean id="studentDao" class="le07.StudentDao"/>
+
+    <bean id="studentSelect" class="le07.StudentSelectService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+    <bean id="studentDelete" class="le07.StudentDeleteService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+    <bean id="studentAllSelect" class="le07.StudentAllSelectService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+    <bean id="studentModify" class="le07.StudentModifyService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+    <bean id="studentRegister" class="le07.StudentRegisterService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+</beans>

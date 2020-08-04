@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="studentDao" class="le07.StudentDao"/>
+
+    <bean id="teacherDao" class="le07.TeacherDao">
+        <property name="name" value="gildong"></property>
+        <property name="age" value="20"></property>
+        <property name="subject" value="programming"></property>
+        <property name="students">
+            <list>
+                <value>ggildong</value>
+                <value>gggildong</value>
+                <value>ggggildong</value>
+            </list>
+        </property>
+        <property name="email">
+            <map>
+                <entry>
+                    <key>
+                        <value>naver</value>
+                    </key>
+                    <value>teacher@naver.com</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="assembler" class="le07.Assembler">
+        <constructor-arg ref="studentDao"/>
+        <constructor-arg ref="teacherDao"/>
+    </bean>
+
+</beans>
