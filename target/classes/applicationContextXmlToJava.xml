@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="studentDao" class="le12.StudentDao"/>
+
+    <bean id="studentSelect" class="le12.StudentSelectService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+    <bean id="studentDelete" class="le12.StudentDeleteService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+    <bean id="studentAllSelect" class="le12.StudentAllSelectService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+    <bean id="studentModify" class="le12.StudentModifyService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+    <bean id="studentRegister" class="le12.StudentRegisterService">
+        <constructor-arg ref="studentDao"/>
+    </bean>
+
+    <bean id="teacherDao" class="le12.TeacherDao">
+        <property name="name" value="gildong"></property>
+        <property name="age" value="20"></property>
+        <property name="subject" value="programming"></property>
+        <property name="students">
+            <list>
+                <value>ggildong</value>
+                <value>gggildong</value>
+                <value>ggggildong</value>
+            </list>
+        </property>
+        <property name="email">
+            <map>
+                <entry>
+                    <key>
+                        <value>naver</value>
+                    </key>
+                    <value>teacher@naver.com</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="assembler" class="le12.Assembler">
+        <constructor-arg ref="studentDao"/>
+        <constructor-arg ref="teacherDao"/>
+    </bean>
+
+</beans>
